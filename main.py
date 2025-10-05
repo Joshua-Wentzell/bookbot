@@ -1,3 +1,5 @@
+from stats import count_words
+
 def main ():
     book_path = "books/frankenstein.txt"
     book_text = read_contents(book_path)
@@ -12,10 +14,6 @@ def read_contents (file_path):
     with open(file_path) as f:
         return f.read()
 
-def count_words (book_text):
-    individual_words = book_text.split()
-    return len(individual_words)
-
 def count_characters (book_text):
     char_count = {}
     for char in book_text:
@@ -28,7 +26,7 @@ def count_characters (book_text):
 
 def print_report (book_path, word_count, char_count):
     print(f"--- Begin report of {book_path} ---")
-    print(f"{word_count} words found in the document\n")
+    print(f"Found {word_count} total words\n")
     list_chars = []
     for char in char_count:
         if char.isalpha():
